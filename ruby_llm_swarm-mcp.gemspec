@@ -4,7 +4,7 @@ require_relative "lib/ruby_llm/mcp/version"
 
 # rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
-  spec.name = "ruby_llm-mcp"
+  spec.name = "ruby_llm_swarm-mcp"
   spec.version = RubyLLM::MCP::VERSION
   spec.authors = ["Patrick Vice"]
   spec.email = ["patrickgvice@gmail.com"]
@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = Gem::Requirement.new(">= 3.1.3")
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/patvice/ruby_llm-mcp"
+  spec.metadata["source_code_uri"] = "https://github.com/parruda/ruby_llm-mcp"
   spec.metadata["changelog_uri"] = "#{spec.metadata['source_code_uri']}/commits/main"
   spec.metadata["documentation_uri"] = "#{spec.homepage}/guides/"
   spec.metadata["bug_tracker_uri"] = "#{spec.metadata['source_code_uri']}/issues"
@@ -40,7 +40,7 @@ Gem::Specification.new do |spec|
   # Runtime dependencies
   spec.add_dependency "httpx", "~> 1.4"
   spec.add_dependency "json-schema", "~> 5.0"
-  spec.add_dependency "ruby_llm", "~> 1.9"
+  # spec.add_dependency "ruby_llm", "~> 1.9"
   spec.add_dependency "zeitwerk", "~> 2"
 
   # Optional dependency for mcp_sdk adapter

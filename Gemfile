@@ -31,3 +31,5 @@ group :development do
   gem "puma"
   gem "rack"
 end
+
+gem "ruby_llm_swarm"
