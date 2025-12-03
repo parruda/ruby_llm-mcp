@@ -494,9 +494,15 @@ module RubyLLM
                 message: "OAuth authentication required. Server returned 401 Unauthorized.",
                 code: 401
               )
-            when 405
+            when 400, 405
               # Server doesn't support SSE - this is acceptable
-              RubyLLM::MCP.logger.info "Server does not support SSE streaming"
+              # 405: Correct response per MCP spec (Method Not Allowed)
+              # 400: Non-compliant servers (e.g., Firecrawl) incorrectly return Bad Request
+              if response.status == 400
+                RubyLLM::MCP.logger.info "Server returned 400 for SSE request (non-compliant). Treating as 'SSE not supported'."
+              else
+                RubyLLM::MCP.logger.info "Server does not support SSE streaming"
+              end
               nil
             when 409
               # Conflict - SSE connection already exists for this session
